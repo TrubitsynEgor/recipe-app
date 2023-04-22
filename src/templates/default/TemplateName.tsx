@@ -1,4 +1,4 @@
-import { DetailsDivProps } from 'types';
+import { DetailsDivProps } from '@/types';
 import styles from './TemplateName.module.scss';
 import cn from 'classnames'
 

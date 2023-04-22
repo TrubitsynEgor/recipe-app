@@ -1,0 +1,66 @@
+.randomRecipes {}
+
+.title {
+	display: block;
+	position: absolute;
+	z-index: 25;
+	bottom: 20px;
+	padding: 7px;
+	left: 20px;
+	right: 20px;
+	background: linear-gradient(var(--blue), var(--cyan));
+	color: var(--gray-100);
+	text-align: center;
+	font-size: 18px;
+	border-radius: 20px;
+	transition: all .3s ease-in-out;
+
+	&:hover {
+		background: linear-gradient(rgba(#378dfc, 0.8), rgba(#0dcaf0, 0.8));
+		border: 1px solid var(--cyan)
+	}
+}
+
+.img {
+	max-width: 100%;
+	object-fit: cover;
+	border-radius: 7px;
+	position: relative;
+	z-index: 3;
+
+
+}
+
+.info {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	z-index: 25;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+
+	&Item {
+		padding: 7px;
+		border-radius: 7px;
+		color: var(--gray-100);
+		font-weight: 600;
+		display: none;
+	}
+}
+
+.vegan {
+	background-color: var(--success);
+	display: block;
+}
+
+.vegetarian {
+	background-color: var(--info);
+	display: block;
+}
+
+.gluten {
+	color: var(--dark);
+	background-color: var(--warning);
+	display: block;
+}

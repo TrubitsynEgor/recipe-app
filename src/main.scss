@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+
+:root {
+	//colors =====>
+	--blue: #378dfc;
+	--blue-hover: rgb(55, 141, 252, .8);
+	--indigo: #6610f2;
+	--purple: #5b62f4;
+	--pink: #d63384;
+	--red: #e52527;
+	--orange: #fd7e14;
+	--yellow: #ffc107;
+	--green: #43cc29;
+	--teal: #20c997;
+	--cyan: #0dcaf0;
+	--black: #000;
+	--white: #fff;
+	--gray: #7f8a99;
+	--gray-dark: #444b40;
+	--gray-100: #f0f5fa;
+	--gray-200: #d9e3f1;
+	--gray-200-hover: rgb(217, 227, 241, .8);
+	--gray-300: #dee2e6;
+	--gray-400: #bed1e6;
+	--gray-500: #adb5bd;
+	--gray-600: #7f8a99;
+	--gray-700: #7b8ab8;
+	--gray-800: #444b40;
+	--gray-900: #212529;
+	--primary: #378dfc;
+	--secondary: #d9e3f1;
+	--success: #43cc29;
+	--info: #5b62f4;
+	--warning: #ffc107;
+	--danger: #e52527;
+	--light: #f0f5fa;
+	--dark: #212529;
+
+	// Fonts =======>
+	--base: 'Poppins', sans-serif;
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html,
+body {
+	font-family: var(--base);
+	font-size: 16px;
+	max-width: 100vw;
+	overflow-x: hidden;
+	font-weight: 400;
+	background-color: var(--gray-200);
+	color: var(--dark);
+}
+
+
+ul {
+	list-style: none;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.visually-hidden {
+	position: absolute;
+	overflow: hidden;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	width: 1px;
+	height: 1px;
+	clip: rect(0 0 0 0);
+}

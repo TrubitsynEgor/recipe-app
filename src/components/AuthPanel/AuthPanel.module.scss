@@ -1,0 +1,13 @@
+.authPanel {
+
+	& a {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	& svg {
+		width: 30px;
+		height: 30px;
+	}
+}

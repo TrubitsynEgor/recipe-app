@@ -1,17 +1,22 @@
 .randomRecipes {}
 
+.mainTitle {
+	margin-bottom: 20px;
+
+}
+
 .title {
 	display: block;
 	position: absolute;
 	z-index: 25;
 	bottom: 20px;
-	padding: 7px;
+	padding: 5px;
 	left: 20px;
 	right: 20px;
 	background: linear-gradient(var(--blue), var(--cyan));
 	color: var(--gray-100);
 	text-align: center;
-	font-size: 18px;
+	font-size: 12px;
 	border-radius: 20px;
 	transition: all .3s ease-in-out;
 
@@ -41,7 +46,9 @@
 	gap: 10px;
 
 	&Item {
-		padding: 7px;
+		text-align: center;
+		font-size: 12px;
+		padding: 5px;
 		border-radius: 7px;
 		color: var(--gray-100);
 		font-weight: 600;

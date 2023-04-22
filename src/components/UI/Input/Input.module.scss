@@ -1,1 +1,27 @@
-.input {}
+.input {
+	border: none;
+	padding: 12px 20px;
+	padding-right: 28px;
+	background-color: var(--gray-300);
+	border-radius: 7px;
+	box-shadow: inset 2px 2px 8px rgba(55, 94, 148, 0.3), inset -3px -2px 5px rgba(255, 255, 255, 0.8);
+	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	outline: none;
+	font-weight: 600;
+	font-family: var(--base);
+	color: var(--dark);
+	font-size: 18px;
+
+	&:focus {
+		background-color: var(--light);
+	}
+
+	&::placeholder {
+		font-weight: 400;
+		font-size: 16px;
+	}
+}
+
+.label {
+	position: relative;
+}

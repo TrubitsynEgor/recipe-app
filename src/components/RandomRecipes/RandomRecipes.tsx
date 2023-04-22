@@ -4,7 +4,8 @@ import cn from 'classnames'
 import { DetailsDivProps } from '@/types';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
-import { Card } from '../Card/Card';
+import { Card } from '../UI/Card/Card';
+import { Container } from '..';
 
 interface RandomRecipesProps extends DetailsDivProps { }
 
@@ -16,37 +17,41 @@ export const RandomRecipes = ({ className, ...props }: RandomRecipesProps) => {
 
   return (
     <div className={cn(styles.randomRecipes, className)} {...props}>
-      <Splide options={{
-        perPage: 4,
-        arrows: false,
-        pagination: false,
-        drag: 'free',
-        gap: '20px',
-        autoplay: true,
-        type: 'loop'
-      }}>
-        {data.recipes.map((el: IRecipeData) =>
-          <SplideSlide key={el.id}>
-            <Card>
-              <a href='#' className={styles.title}>{el.title}</a>
-              <img className={styles.img} src={el.image} />
-              <div className={styles.info}>
-                <div className={cn(styles.infoItem, {
-                  [styles.gluten]: el.glutenFree
-                })}>{el.glutenFree && 'Gluten free'}</div>
-                <div className={cn(styles.infoItem, {
-                  [styles.vegan]: el.vegan
-                })}>{el.vegan ? 'Vegan' : ''}</div>
-                <div className={cn(styles.infoItem, {
-                  [styles.vegetarian]: el.vegetarian
-                })}>{el.vegetarian ? 'Vegetarian' : ''}</div>
-              </div>
+      <Container>
+        <h1 className={styles.mainTitle}>Random recipes for you</h1>
 
-            </Card>
-          </SplideSlide>
-        )}
+        <Splide options={{
+          perPage: 4,
+          arrows: false,
+          pagination: false,
+          drag: 'free',
+          gap: '20px',
+          autoplay: true,
+          type: 'loop'
+        }}>
+          {data.recipes.map((el: IRecipeData) =>
+            <SplideSlide key={el.id}>
+              <Card>
+                <a href='#' className={styles.title}>{el.title}</a>
+                <img className={styles.img} src={el.image} />
+                <div className={styles.info}>
+                  <div className={cn(styles.infoItem, {
+                    [styles.gluten]: el.glutenFree
+                  })}>{el.glutenFree && 'Gluten free'}</div>
+                  <div className={cn(styles.infoItem, {
+                    [styles.vegan]: el.vegan
+                  })}>{el.vegan ? 'Vegan' : ''}</div>
+                  <div className={cn(styles.infoItem, {
+                    [styles.vegetarian]: el.vegetarian
+                  })}>{el.vegetarian ? 'Vegetarian' : ''}</div>
+                </div>
 
-      </Splide>
+              </Card>
+            </SplideSlide>
+          )}
+
+        </Splide>
+      </Container>
     </div>
   )
 };

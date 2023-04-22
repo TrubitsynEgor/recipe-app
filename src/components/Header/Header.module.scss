@@ -1,0 +1,53 @@
+.header {
+	padding: 20px 0;
+	background: linear-gradient(var(--blue), var(--cyan));
+	color: var(--gray-100);
+	margin-bottom: 40px;
+
+}
+
+.menu {
+	margin-top: 5px;
+
+}
+
+.container {
+	display: flex;
+	align-items: center;
+	gap: 40px;
+	justify-content: space-between;
+}
+
+.input {
+	width: 100%;
+}
+
+.searchInput {
+	position: relative;
+}
+
+.img {
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	z-index: 5;
+	right: 2px;
+	top: 25%;
+	fill: var(--gray-600);
+}
+
+.favorites {
+	position: relative;
+	margin-top: 5px;
+
+	& svg {
+		width: 30px;
+		height: 30px;
+	}
+
+	& span {
+		background-color: var(--pink);
+		padding: 0 5px;
+		border-radius: 7px;
+	}
+}

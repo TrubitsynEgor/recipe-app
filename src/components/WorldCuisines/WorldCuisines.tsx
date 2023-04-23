@@ -14,7 +14,7 @@ export const WorldCuisines = ({ className, ...props }: WorldCuisinesProps) => {
         <h1>Recipes from around the world</h1>
         <ul className={styles.list}>
           {cuisines.map(el => (
-            <li className={styles.item}>
+            <li key={el.title} className={styles.item}>
               <Link to={el.title.toLowerCase()}>
                 <span>{el.title}</span>
                 {el.image}

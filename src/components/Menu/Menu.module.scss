@@ -6,13 +6,25 @@
 	gap: 20px;
 	font-weight: 600;
 
-	& a {
-		transition: all .3s ease-in-out;
 
-		&:hover {
-			color: var(--orange);
-		}
+
+}
+
+
+
+.link {
+	transition: all .3s ease-in-out;
+
+	&.active {
+		color: var(--orange);
+	}
+
+	&:hover {
+		color: var(--orange);
 	}
 }
+
+
+.active {}
 
 .item {}

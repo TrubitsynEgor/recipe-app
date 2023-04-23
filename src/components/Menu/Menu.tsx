@@ -1,7 +1,7 @@
 import { DetailsDivProps } from '@/types';
 import styles from './Menu.module.scss';
 import cn from 'classnames'
-import { Link } from 'react-router-dom';
+import { Link, NavLink, useLocation, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { SubMenu } from '..';
 
@@ -22,6 +22,7 @@ interface MenuProps extends DetailsDivProps { }
 
 export const Menu = ({ className, ...props }: MenuProps) => {
 
+  const location = useLocation()
   const [onHover, setOnHover] = useState(false)
 
   const openSubMenu = () => {
@@ -36,7 +37,9 @@ export const Menu = ({ className, ...props }: MenuProps) => {
     <nav className={cn(styles.menu, className)} {...props}>
       <ul className={styles.list}>
         <li className={styles.item}>
-          <Link onMouseEnter={openSubMenu} onMouseLeave={closeSubMenu} to="/cuisines" className={styles.link}>Cuisines</Link>
+          <NavLink onMouseEnter={openSubMenu} onMouseLeave={closeSubMenu} to="/cuisines" className={cn(styles.link, {
+            [styles.active]: location.pathname === '/cuisines'
+          })}>Cuisines</NavLink>
           {onHover && <SubMenu onMouseEnter={openSubMenu} onMouseLeave={closeSubMenu} cuisines={cuisines} />}
         </li>
         <li className={styles.item}>

@@ -9,6 +9,9 @@ export const recipeQuery = createApi({
 		}),
 		getByCountryName: build.query({
 			query: (name) => `complexSearch?apiKey=${import.meta.env.VITE_API_KEY}&cuisine=${name}&number=20`
+		}),
+		getById: build.query({
+			query: (name) => `complexSearch?apiKey=${import.meta.env.VITE_API_KEY}&cuisine=${name}&number=20`
 		})
 
 	})

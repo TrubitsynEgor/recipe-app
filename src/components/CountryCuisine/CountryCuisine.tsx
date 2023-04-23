@@ -21,7 +21,7 @@ export const CountryCuisine = ({ className, ...props }: CountryCuisineProps) => 
       <ul className={cn(styles.countryCuisine, className)} {...props}>
         {result?.map((el: IRecipeData) => (
           <li key={el.id}>
-            <Link to='/details'>
+            <Link to={`/details/${el.id}`}>
               <Card>
                 <img src={el.image} alt="delicios image" />
                 <h3 className={styles.title}>{el.title}</h3>

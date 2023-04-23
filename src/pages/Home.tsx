@@ -1,15 +1,12 @@
 import { Header, RandomRecipes } from '@/components';
-import { DetailsDivProps } from '@/types';
 
-interface HomeProps extends DetailsDivProps { }
 
-export const Home = ({ className, ...props }: HomeProps) => {
+export const Home = () => {
 
   return (
-    <div className={className} {...props}>
+    <>
       <Header />
       <RandomRecipes />
-
-    </div>
+    </>
   )
 };

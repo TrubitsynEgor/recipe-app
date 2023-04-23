@@ -1,4 +1,4 @@
-interface IRecipeData {
+export interface IRecipeData {
 	id: number
 	title: string
 	instructions: string

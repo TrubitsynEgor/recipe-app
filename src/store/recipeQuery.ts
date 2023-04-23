@@ -5,10 +5,14 @@ export const recipeQuery = createApi({
 	baseQuery: fetchBaseQuery({ baseUrl: `https://api.spoonacular.com/recipes/` }),
 	endpoints: (build) => ({
 		getRandom: build.query({
-			query: () => `random?apiKey=${import.meta.env.VITE_API_KEY}&number=9`
+			query: () => `random?apiKey=${import.meta.env.VITE_API_KEY}&number=12`
+		}),
+		getByCountryName: build.query({
+			query: (name) => `complexSearch?apiKey=${import.meta.env.VITE_API_KEY}&cuisine=${name}&number=20`
 		})
+
 	})
 })
 
 
-export const { useGetRandomQuery } = recipeQuery
+export const { useGetRandomQuery, useGetByCountryNameQuery } = recipeQuery

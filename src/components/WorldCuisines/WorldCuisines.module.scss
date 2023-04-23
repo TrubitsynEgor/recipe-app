@@ -1,0 +1,53 @@
+.countryRecipes {}
+
+
+.list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 40px;
+	gap: 30px;
+}
+
+.item {
+	display: flex;
+	gap: 30px;
+	position: relative;
+	padding: 20px;
+	background-color: var(--light);
+	border-radius: 7px;
+	box-shadow: 6px 3px 3px rgba(grey, 0.5);
+
+	& a {
+		position: relative;
+
+
+	}
+
+	& span {
+		position: absolute;
+		right: 10px;
+		top: 10px;
+		z-index: 10;
+		background: linear-gradient(var(--blue), var(--cyan));
+		color: var(--gray-100);
+		padding: 5px;
+		border-radius: 7px;
+	}
+
+	& svg {
+		max-width: 300px;
+		height: 200px;
+		transition: all .3s ease-in-out;
+
+		&:hover {
+			box-shadow: 4px 10px 10px rgba(#000000, 0.5);
+		}
+	}
+
+}
+
+.descr {
+	max-width: 500px;
+
+}

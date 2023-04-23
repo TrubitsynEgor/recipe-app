@@ -5,4 +5,14 @@
 	align-items: center;
 	gap: 20px;
 	font-weight: 600;
+
+	& a {
+		transition: all .3s ease-in-out;
+
+		&:hover {
+			color: var(--orange);
+		}
+	}
 }
+
+.item {}

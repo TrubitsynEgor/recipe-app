@@ -1,0 +1,19 @@
+.subMenu {
+	background: linear-gradient(var(--cyan), var(--blue));
+	color: var(--gray-100);
+	padding: 10px 20px;
+	border-radius: 7px;
+	position: absolute;
+	z-index: 500;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+
+	& a {
+		transition: all .3s ease-in-out;
+
+		&:hover {
+			color: var(--orange);
+		}
+	}
+}

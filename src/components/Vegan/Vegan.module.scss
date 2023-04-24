@@ -1,0 +1,28 @@
+.Vegan {
+	margin-top: 80px;
+
+}
+
+.sectionTitle {
+	margin-bottom: 30px;
+	text-align: right;
+}
+
+.content {
+	display: flex;
+	gap: 40px;
+	justify-content: flex-end;
+
+	& img {
+		max-width: 100%;
+		object-fit: cover;
+		border-radius: 7px;
+	}
+}
+
+.caption {
+	max-width: 600px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}

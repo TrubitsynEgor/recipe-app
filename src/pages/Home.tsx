@@ -1,4 +1,4 @@
-import { Header, RandomRecipes } from '@/components';
+import { Header, RandomRecipes, Vegan, Vegetarian } from '@/components';
 
 
 export const Home = () => {
@@ -7,6 +7,8 @@ export const Home = () => {
     <>
       <Header />
       <RandomRecipes />
+      <Vegetarian />
+      <Vegan />
     </>
   )
 };

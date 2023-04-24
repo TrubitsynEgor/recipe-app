@@ -1,0 +1,27 @@
+.vegetarian {
+	margin-top: 80px;
+
+}
+
+.sectionTitle {
+	margin-bottom: 30px;
+
+}
+
+.content {
+	display: flex;
+	gap: 40px;
+
+	& img {
+		max-width: 100%;
+		object-fit: cover;
+		border-radius: 7px;
+	}
+}
+
+.caption {
+	max-width: 600px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}

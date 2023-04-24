@@ -3,7 +3,7 @@ import styles from './SearchedRecipes.module.scss';
 import cn from 'classnames'
 import { useGetBySearchValueQuery } from '@/store';
 import { Link, useParams } from 'react-router-dom';
-import { Container, ErrorPage } from '..';
+import { Container, ErrorPage, Spinner } from '..';
 import { IShortRecipeData } from '@/types/recipe';
 
 interface SearchedRecipesProps extends DetailsDivProps { }
@@ -13,8 +13,12 @@ export const SearchedRecipes = ({ className, ...props }: SearchedRecipesProps) =
   const { data = [], isError, isLoading } = useGetBySearchValueQuery(params.searched)
 
 
+  if (isLoading) return <Spinner />
 
-  if (isError) return <ErrorPage title="Oops, I guess we didn't find anything." />
+  if (isError || !data.results.length) return <ErrorPage
+    title="Oops, I guess we didn't find anything."
+    caption='Try entering a different value' />
+
   return (
     <div className={cn(styles.searchedRecipes, className)} {...props}>
       <Container>

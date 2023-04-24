@@ -32,7 +32,7 @@ export const Header = ({ className, ...props }: HeaderProps) => {
         <Menu className={styles.menu} />
 
         <form onSubmit={handleChange} className={styles.searchInput}>
-          <Input value={value} onChange={e => setValue(e.target.value)} className={styles.input} placeholder='What are you looking for?' />
+          <Input value={value} onChange={e => setValue(e.target.value)} className={styles.input} placeholder='Enter a dish or ingredients' />
           <AiOutlineFileSearch className={styles.img} />
         </form>
 

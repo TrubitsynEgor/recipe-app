@@ -3,7 +3,7 @@ import styles from './DetailsRecipe.module.scss';
 import cn from 'classnames'
 import { useGetByIdQuery } from '@/store';
 import { useParams } from 'react-router-dom';
-import { Button, Container } from '..';
+import { Button, Container, ErrorPage, Spinner } from '..';
 import { Ingredients } from '@/types/recipe';
 import { useState } from 'react';
 
@@ -13,7 +13,11 @@ export const DetailsRecipe = ({ className, ...props }: DetailsRecipeProps) => {
   const [tabs, setTabs] = useState(false)
   const params = useParams()
   const { data = [], isError, isLoading } = useGetByIdQuery(params.id)
-  console.log(data);
+
+  if (isLoading) return <Spinner />
+  if (isError) return <ErrorPage
+    title="Oops, looks like we're having server problems"
+    caption='We are already working on this problem' />
 
   return (
     <div className={cn(styles.detailsRecipe, className)} {...props}>

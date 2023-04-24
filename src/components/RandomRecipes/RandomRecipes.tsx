@@ -5,7 +5,7 @@ import { DetailsDivProps, IRecipeData } from '@/types';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import { Card } from '../UI/Card/Card';
-import { Container } from '..';
+import { Container, ErrorPage, Spinner } from '..';
 import { Link } from 'react-router-dom';
 
 interface RandomRecipesProps extends DetailsDivProps { }
@@ -13,7 +13,11 @@ interface RandomRecipesProps extends DetailsDivProps { }
 export const RandomRecipes = ({ className, ...props }: RandomRecipesProps) => {
   const { data = [], isLoading, isError } = useGetRandomQuery()
 
-  if (isLoading) return <h1>Loading...</h1>
+
+  if (isLoading) return <Spinner />
+  if (isError) return <ErrorPage
+    title="Oops, looks like we're having server problems"
+    caption='We are already working on this problem' />
 
 
   return (

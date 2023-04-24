@@ -1,5 +1,5 @@
 import styles from './App.module.scss'
-import { Home, Cuisines, CuisinesTarget } from './pages'
+import { Home, Cuisines, CuisinesTarget, Search, Recipe } from './pages'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider, } from "react-router-dom";
 
 const router = createBrowserRouter(
@@ -8,6 +8,8 @@ const router = createBrowserRouter(
       <Route path="/" element={<Home />} />
       <Route path="/cuisines" element={<Cuisines />} />
       <Route path="/cuisines/:country" element={<CuisinesTarget />} />
+      <Route path="/search/:searched" element={<Search />} />
+      <Route path="/recipe/:id" element={<Recipe />} />
 
     </>
   )

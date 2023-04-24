@@ -1,11 +1,12 @@
 import { useGetRandomQuery } from '@/store';
 import styles from './RandomRecipes.module.scss';
 import cn from 'classnames'
-import { DetailsDivProps } from '@/types';
+import { DetailsDivProps, IRecipeData } from '@/types';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import { Card } from '../UI/Card/Card';
 import { Container } from '..';
+import { Link } from 'react-router-dom';
 
 interface RandomRecipesProps extends DetailsDivProps { }
 
@@ -32,7 +33,7 @@ export const RandomRecipes = ({ className, ...props }: RandomRecipesProps) => {
           {data.recipes.map((el: IRecipeData) =>
             <SplideSlide key={el.id}>
               <Card>
-                <a href='#' className={styles.title}>{el.title}</a>
+                <Link to={`/recipe/${el.id}`} className={styles.title}>{el.title}</Link>
                 <img className={styles.img} src={el.image} />
                 <div className={styles.info}>
                   <div className={cn(styles.infoItem, {

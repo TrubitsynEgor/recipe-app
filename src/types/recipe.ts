@@ -8,10 +8,13 @@ export interface IRecipeData {
 	vegetarian: boolean
 	glutenFree: boolean
 }
+export type IShortRecipeData = Pick<IRecipeData, 'id' | 'title' | 'image'>
 
-interface Ingredients {
+
+export interface Ingredients {
 	id: number
 	name: string
 	image: string
 	original: string
+	instructions: string
 }

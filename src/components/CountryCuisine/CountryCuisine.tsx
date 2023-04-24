@@ -15,13 +15,15 @@ export const CountryCuisine = ({ className, ...props }: CountryCuisineProps) => 
 
 
 
+
+
   return (
     <Container>
       <h1 className={styles.pageTitle}>{params.country} recipes</h1>
       <ul className={cn(styles.countryCuisine, className)} {...props}>
         {result?.map((el: IRecipeData) => (
           <li key={el.id}>
-            <Link to={`/details/${el.id}`}>
+            <Link to={`/recipe/${el.id}`}>
               <Card>
                 <img src={el.image} alt="delicios image" />
                 <h3 className={styles.title}>{el.title}</h3>

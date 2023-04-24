@@ -14,6 +14,11 @@
 		font-family: var(--lobster);
 		color: var(--gray-100);
 		font-size: 22px;
+		transition: all .3s ease-in-out;
+
+		&:hover {
+			color: var(--orange);
+		}
 
 	}
 }

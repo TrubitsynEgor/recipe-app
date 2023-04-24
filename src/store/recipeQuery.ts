@@ -10,12 +10,15 @@ export const recipeQuery = createApi({
 		getByCountryName: build.query({
 			query: (name) => `complexSearch?apiKey=${import.meta.env.VITE_API_KEY}&cuisine=${name}&number=20`
 		}),
+		getBySearchValue: build.query({
+			query: (name) => `complexSearch?apiKey=${import.meta.env.VITE_API_KEY}&query=${name}&number=20`
+		}),
 		getById: build.query({
-			query: (name) => `complexSearch?apiKey=${import.meta.env.VITE_API_KEY}&cuisine=${name}&number=20`
-		})
+			query: (id) => `${id}/information?apiKey=${import.meta.env.VITE_API_KEY}&number=20`
+		}),
 
 	})
 })
 
 
-export const { useGetRandomQuery, useGetByCountryNameQuery } = recipeQuery
+export const { useGetRandomQuery, useGetByCountryNameQuery, useGetBySearchValueQuery, useGetByIdQuery } = recipeQuery

@@ -43,17 +43,16 @@ export const Menu = ({ className, ...props }: MenuProps) => {
           {onHover && <SubMenu onMouseEnter={openSubMenu} onMouseLeave={closeSubMenu} cuisines={cuisines} />}
         </li>
         <li className={styles.item}>
-          <a href="#" className={styles.link}>Link№2</a>
+          <NavLink to="/vegetarian" className={cn(styles.link, {
+            [styles.active]: location.pathname === '/vegetarian'
+          })}>Vegetarian</NavLink>
         </li>
         <li className={styles.item}>
-          <a href="#" className={styles.link}>Link№3</a>
+          <NavLink to="/vegan" className={cn(styles.link, {
+            [styles.active]: location.pathname === '/vegan'
+          })}>Vegan</NavLink>
         </li>
-        <li className={styles.item}>
-          <a href="#" className={styles.link}>Link№4</a>
-        </li>
-        <li className={styles.item}>
-          <a href="#" className={styles.link}>Link№5</a>
-        </li>
+
       </ul>
     </nav>
   )

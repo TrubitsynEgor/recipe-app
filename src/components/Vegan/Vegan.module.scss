@@ -1,5 +1,6 @@
 .Vegan {
 	margin-top: 80px;
+	margin-bottom: 80px;
 
 }
 
@@ -14,7 +15,7 @@
 	justify-content: flex-end;
 
 	& img {
-		max-width: 100%;
+		max-width: 600px;
 		object-fit: cover;
 		border-radius: 7px;
 	}

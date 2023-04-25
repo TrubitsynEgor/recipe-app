@@ -34,14 +34,27 @@
 	right: 15px;
 	z-index: 10;
 	text-align: center;
-	font-size: 14px;
-	padding: 7px;
-	border-radius: 7px;
-	color: var(--gray-100);
-	font-weight: 600;
-	background-color: var(--indigo);
 
+	&Item {
+		font-size: 14px;
+		padding: 7px;
+		border-radius: 7px;
+		color: var(--gray-100);
+		font-weight: 600;
+	}
 
+	&Gluten {
+		background-color: var(--indigo);
+	}
+
+	&Vegan {
+		background-color: var(--warning);
+		color: var(--dark);
+	}
+
+	&Vegetarian {
+		background-color: var(--blue);
+	}
 }
 
 .active {
@@ -91,4 +104,38 @@
 
 .description {
 	margin-top: 40px;
+}
+
+.favoriteBtn {
+	position: absolute;
+	left: 15px;
+	top: -20px;
+	padding: 0;
+	background: none;
+	box-shadow: none;
+
+	&:hover {
+		background: none;
+
+		& svg {
+			fill: var(--red);
+			transform: scale(1.1);
+		}
+	}
+
+	&.active {
+		background: none;
+
+		& svg {
+			fill: var(--red);
+			transform: scale(1.1);
+		}
+	}
+
+	& svg {
+		width: 40px;
+		height: 40px;
+		fill: var(--pink);
+		transition: all .3s ease-in-out;
+	}
 }

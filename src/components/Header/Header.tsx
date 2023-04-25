@@ -7,7 +7,7 @@ import { AiOutlineFileSearch } from 'react-icons/ai'
 import { AiOutlineHeart } from 'react-icons/ai'
 import { FormEvent, useEffect, useState } from 'react';
 import { ChangeEvent } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useGetBySearchValueQuery } from '@/store';
 
 interface HeaderProps extends DetailsDivProps { }
@@ -36,10 +36,10 @@ export const Header = ({ className, ...props }: HeaderProps) => {
           <AiOutlineFileSearch className={styles.img} />
         </form>
 
-        <a href='#' className={styles.favorites}>
+        <Link to='/favorite' className={styles.favorites}>
           <AiOutlineHeart />
           {favoritesCount > 0 && <span>{favoritesCount}</span>}
-        </a>
+        </Link>
 
         <AuthPanel />
 

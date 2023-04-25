@@ -1,0 +1,90 @@
+.favoritePage {}
+
+.pageTitle {
+	margin-bottom: 40px;
+}
+
+.list {
+	display: flex;
+	gap: 30px;
+	flex-direction: column;
+
+}
+
+.item {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+	background-color: var(--light);
+	padding: 20px;
+	border-radius: 7px;
+	box-shadow: inset 2px 2px 6px rgba(109, 114, 121, 0.2), inset -3px -2px 4px rgba(255, 255, 255, 0.2);
+	justify-content: space-between;
+
+	& img {
+		max-width: 200px;
+		border-radius: 7px;
+	}
+
+}
+
+.right {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.title {
+	font-size: 28px;
+	max-width: 500px;
+	transition: all .3s ease-in-out;
+
+	&:hover {
+		color: rgba(#000000, 0.5);
+	}
+}
+
+.tags {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	text-align: center;
+
+	&Item {
+		font-size: 14px;
+		padding: 7px;
+		border-radius: 7px;
+		color: var(--gray-100);
+		font-weight: 600;
+	}
+
+	&Gluten {
+		background-color: var(--indigo);
+	}
+
+	&Vegan {
+		background-color: var(--warning);
+		color: var(--dark);
+	}
+
+	&Vegetarian {
+		background-color: var(--blue);
+	}
+}
+
+.btn {
+	padding: 5px;
+
+	& svg {
+		width: 30px;
+		height: 30px;
+		transition: all .3s ease-in-out;
+
+	}
+
+	&:hover {
+		& svg {
+			fill: var(--warning);
+		}
+	}
+}

@@ -2,7 +2,7 @@ import { DetailsDivProps, IShortRecipeData } from '@/types';
 import styles from './VegetarianPage.module.scss';
 import cn from 'classnames'
 import { useGetByDietQuery } from '@/store';
-import { Card, Container } from '..';
+import { Card, Container, ErrorPage, Spinner } from '..';
 import { Link } from 'react-router-dom';
 
 interface VegetarianPageProps extends DetailsDivProps { }
@@ -10,8 +10,10 @@ interface VegetarianPageProps extends DetailsDivProps { }
 export const VegetarianPage = ({ className, ...props }: VegetarianPageProps) => {
 
   const { data = [], isError, isLoading } = useGetByDietQuery('vegetarian')
-  console.log(data);
-
+  if (isLoading) return <Spinner />
+  if (isError) return <ErrorPage
+    title="Oops, looks like we're having server problems"
+    caption='We are already working on this problem' />
 
   return (
     <div className={cn(styles.vegetarianPage, className)} {...props}>

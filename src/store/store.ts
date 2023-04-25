@@ -1,10 +1,15 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { recipeQuery } from './recipeQuery'
+import { favoriteReducer } from './favoriteSlice'
+
+const rootReducer = combineReducers({
+	[recipeQuery.reducerPath]: recipeQuery.reducer,
+	favorite: favoriteReducer
+})
+
 
 export const store = configureStore({
-	reducer: {
-		[recipeQuery.reducerPath]: recipeQuery.reducer
-	},
+	reducer: rootReducer,
 	middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(recipeQuery.middleware)
 })
 

@@ -1,17 +1,12 @@
+import { getLocalStorage } from '@/helpers/localeStorage';
 import { IUser } from '@/types';
 import { createSlice } from '@reduxjs/toolkit';
 
 
-interface IUsersState {
+export interface IUsersState {
 	user: IUser
 }
-const initialState: IUsersState = {
-	user: {
-		id: '',
-		email: '',
-		isAuth: false
-	}
-}
+const initialState: IUsersState = getLocalStorage('auth')
 
 export const authSlice = createSlice({
 	name: 'user',

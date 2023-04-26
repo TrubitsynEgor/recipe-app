@@ -10,7 +10,7 @@ interface UserProfileProps extends DetailsDivProps { }
 
 export const UserProfile = ({ className, ...props }: UserProfileProps) => {
   const { isAuth, email } = useAuth()
-  const userName = email.split("@")[0]
+  const userName = email?.split("@")[0]
   const navigate = useNavigate()
 
   useEffect(() => {

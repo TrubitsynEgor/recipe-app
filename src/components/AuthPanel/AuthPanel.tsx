@@ -17,7 +17,7 @@ interface AuthPanelProps extends DetailsDivProps { }
 export const AuthPanel = ({ className, ...props }: AuthPanelProps) => {
   const dispatch = useDispatch<AppDispatch>()
   const { isAuth, email } = useAuth()
-  const userName = email.split('@')[0]
+  const userName = email?.split('@')[0]
 
   const logOut = () => {
     dispatch(loginOut())

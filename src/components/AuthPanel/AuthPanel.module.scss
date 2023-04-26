@@ -1,13 +1,42 @@
 .authPanel {
+	display: flex;
+	align-items: center;
 
 	& a {
 		display: flex;
 		align-items: center;
 		gap: 10px;
+		transition: all .3s ease-in-out;
+
+		&:hover {
+			color: var(--orange);
+		}
 	}
 
 	& svg {
 		width: 30px;
 		height: 30px;
+	}
+}
+
+.exit {
+	background: none;
+	box-shadow: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+
+	& svg {
+		transition: all .3s ease-in-out;
+
+	}
+
+	&:hover {
+		background: none;
+
+		& svg {
+			fill: var(--orange);
+		}
 	}
 }

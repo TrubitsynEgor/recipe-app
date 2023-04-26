@@ -4,7 +4,7 @@ import cn from 'classnames'
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '@/store';
 import { Link } from 'react-router-dom';
-import { Button, Container } from '..';
+import { Button, Container, Empty } from '..';
 import { RiDeleteBin5Fill } from 'react-icons/ri'
 import { deleteFavorite } from '@/store/favoriteSlice';
 
@@ -18,6 +18,8 @@ export const FavoritePage = ({ className, ...props }: FavoritePageProps) => {
   const deleteFavoriteRecipe = (id: number) => {
     dispatch(deleteFavorite(id))
   }
+
+  if (recipes.length === 0) return <Empty />
 
   return (
     <div className={cn(styles.favoritePage, className)} {...props}>

@@ -1,10 +1,12 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { recipeQuery } from './recipeQuery'
 import { favoriteReducer } from './favoriteSlice'
+import { authReducer } from './authSlice'
 
 const rootReducer = combineReducers({
 	[recipeQuery.reducerPath]: recipeQuery.reducer,
-	favorite: favoriteReducer
+	favorite: favoriteReducer,
+	auth: authReducer,
 })
 
 

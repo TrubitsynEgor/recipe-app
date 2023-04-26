@@ -18,3 +18,13 @@ export const getLocalStorage = (key: string) => {
 export const setLocalStorage = (key: string, data: LocalStorageData) => {
 	localStorage.setItem(key, JSON.stringify(data))
 }
+
+
+export const getProfileStorage = (key: string) => {
+	const storage = localStorage.getItem(key)
+	if (storage !== null) {
+		const data = JSON.parse(storage)
+		return data
+	}
+	return ''
+}

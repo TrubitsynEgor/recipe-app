@@ -2,6 +2,8 @@ export * from './UI/Button/Button'
 export * from './UI/Input/Input'
 export * from './UI/Card/Card'
 export * from './UI/Logo/Logo'
+export * from './UI/EditInput/EditInput'
+export * from './UI/EditTextArea/EditTextArea'
 
 
 
@@ -27,3 +29,4 @@ export * from './LoginForm/LoginForm'
 export * from './Form/Form'
 export * from './RegisterForm/RegisterForm'
 export * from './UserProfile/UserProfile'
+export * from './UserForm/UserForm'

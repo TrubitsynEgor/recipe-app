@@ -1,7 +1,7 @@
 import { DetailsDivProps } from '@/types';
 import styles from './UserProfile.module.scss';
 import cn from 'classnames'
-import { Container } from '..';
+import { Container, UserForm } from '..';
 import { useAuth } from '@/hooks/useAuth';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -28,6 +28,8 @@ export const UserProfile = ({ className, ...props }: UserProfileProps) => {
     <div className={cn(styles.userProfile, className)} {...props}>
       <Container>
         <h1>Welcome!  {userName}</h1>
+        <UserForm />
+
       </Container>
     </div>
   )

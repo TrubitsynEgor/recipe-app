@@ -5,15 +5,13 @@ import { Container } from '../Container/Container';
 import { AuthPanel, Input, Logo, Menu } from '..';
 import { AiOutlineFileSearch } from 'react-icons/ai'
 import { AiOutlineHeart } from 'react-icons/ai'
-import { FormEvent, useEffect, useState } from 'react';
-import { ChangeEvent } from 'react'
+import { FormEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { RootState, useGetBySearchValueQuery } from '@/store';
+import { RootState } from '@/store';
 import { useSelector } from 'react-redux';
 
-interface HeaderProps extends DetailsDivProps { }
 
-export const Header = ({ className, ...props }: HeaderProps) => {
+export const Header = ({ className, ...props }: DetailsDivProps) => {
   const { count } = useSelector((data: RootState) => data.favorite)
   const [value, setValue] = useState('')
 

@@ -10,9 +10,8 @@ import { BsFillBookmarkHeartFill } from 'react-icons/bs'
 import { useDispatch, useSelector } from 'react-redux';
 import { addProductToFavorite, deleteFavorite } from '@/store/favoriteSlice';
 
-interface DetailsRecipeProps extends DetailsDivProps { }
 
-export const DetailsRecipe = ({ className, ...props }: DetailsRecipeProps) => {
+export const DetailsRecipe = ({ className, ...props }: DetailsDivProps) => {
   const [tabs, setTabs] = useState(false)
   const params = useParams()
   const { data = [], isError, isLoading } = useGetByIdQuery(params.id)

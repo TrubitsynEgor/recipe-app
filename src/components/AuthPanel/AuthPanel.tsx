@@ -11,10 +11,9 @@ import { AppDispatch } from '@/store';
 import { loginOut } from '@/store/authSlice';
 
 
-interface AuthPanelProps extends DetailsDivProps { }
 
 
-export const AuthPanel = ({ className, ...props }: AuthPanelProps) => {
+export const AuthPanel = ({ className, ...props }: DetailsDivProps) => {
   const dispatch = useDispatch<AppDispatch>()
   const { isAuth, email } = useAuth()
   const userName = email?.split('@')[0]

@@ -8,9 +8,8 @@ import { Button, Container, Empty } from '..';
 import { RiDeleteBin5Fill } from 'react-icons/ri'
 import { deleteFavorite } from '@/store/favoriteSlice';
 
-interface FavoritePageProps extends DetailsDivProps { }
 
-export const FavoritePage = ({ className, ...props }: FavoritePageProps) => {
+export const FavoritePage = ({ className, ...props }: DetailsDivProps) => {
 
   const { recipes } = useSelector((state: RootState) => state.favorite)
   const dispatch = useDispatch<AppDispatch>()
@@ -26,7 +25,7 @@ export const FavoritePage = ({ className, ...props }: FavoritePageProps) => {
       <Container>
         <h1 className={styles.pageTitle}>Your favorite recipes</h1>
         <ul className={styles.list}>
-          {recipes && recipes.map((el: IRecipeData, idx) => (
+          {recipes && recipes.map((el: IRecipeData) => (
             <li className={styles.item} key={el.id}>
               <Link to={`/recipe/${el.id}`} className={styles.title}>{el.title}</Link>
               <div className={styles.right}>

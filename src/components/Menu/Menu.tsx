@@ -1,7 +1,7 @@
 import { DetailsDivProps } from '@/types';
 import styles from './Menu.module.scss';
 import cn from 'classnames'
-import { Link, NavLink, useLocation, useParams } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { SubMenu } from '..';
 
@@ -18,9 +18,8 @@ export const cuisines = [
   { title: 'Spanish', image: <ES />, description: 'Spanish food reflects the principles of the Mediterranean diet, including lots of fresh fruits and vegetables, olive oil, nuts, seafood, and—of course—wine. It\'s based on simple, seasonal, high- quality, and nutritious ingredients that are often sourced locally. ' },
 ]
 
-interface MenuProps extends DetailsDivProps { }
 
-export const Menu = ({ className, ...props }: MenuProps) => {
+export const Menu = ({ className, ...props }: DetailsDivProps) => {
 
   const location = useLocation()
   const [onHover, setOnHover] = useState(false)

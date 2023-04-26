@@ -1,8 +1,5 @@
-import { DetailsFormProps } from '@/types';
-import styles from './RegisterForm.module.scss';
-import cn from 'classnames'
 import { Container, Form } from '..';
-import { FormEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '@/store';
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth'
@@ -29,6 +26,7 @@ export const RegisterForm = () => {
         }))
         navigate('/profile')
       })
+      .catch(() => setError(true))
 
   }
 
@@ -45,7 +43,7 @@ export const RegisterForm = () => {
 
   return (
     <Container>
-      <Form link='authorization' title='Register' submitAuthData={submitAuthData} />
+      <Form error={error} link='authorization' title='Register' submitAuthData={submitAuthData} />
     </Container>
   )
 };

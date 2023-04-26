@@ -1,12 +1,9 @@
-import { DetailsDivProps } from '@/types';
 import styles from './UserForm.module.scss';
-import cn from 'classnames'
 import { useAuth } from '@/hooks/useAuth';
 import { EditInput, EditTextArea } from '..';
 
-interface UserFormProps extends DetailsDivProps { }
 
-export const UserForm = ({ className, ...props }: UserFormProps) => {
+export const UserForm = () => {
 
   const { email } = useAuth()
 

@@ -1,22 +1,19 @@
 import { DetailsDivProps } from '@/types';
 import styles from './EditInput.module.scss';
-import cn from 'classnames'
 import { FaRegEdit } from 'react-icons/fa';
 import { useEffect, useState } from 'react'
 import { Input } from '../Input/Input';
 import { Button } from '../Button/Button';
 import { getProfileStorage } from '@/helpers/localeStorage';
-interface EditInputProps extends DetailsDivProps { }
 
-export const EditInput = ({ title, className, ...props }: EditInputProps) => {
+export const EditInput = ({ title }: DetailsDivProps) => {
   const [value, setValue] = useState(getProfileStorage(title ?? ''))
   const [isVisible, setIsVisible] = useState(false)
-  const [alert, setAlert] = useState('')
 
   const handleInputOnKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       setIsVisible(false)
-      setAlert(`field ${title} changed`)
+
     }
   }
 
@@ -28,7 +25,7 @@ export const EditInput = ({ title, className, ...props }: EditInputProps) => {
 
 
   return (
-    <div className={cn(styles.editInput, className)} {...props}>
+    <div >
       {isVisible
         ? <Input
           aria-label={`edit info for ${title} here`}

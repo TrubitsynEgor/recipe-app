@@ -1,8 +1,5 @@
-import { DetailsFormProps } from '@/types';
-import styles from './LoginForm.module.scss';
-import cn from 'classnames'
 import { Container, Form } from '..';
-import { FormEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '@/store';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
@@ -35,7 +32,6 @@ export const LoginForm = () => {
 
   useEffect(() => {
     if (isAuth) navigate('/profile')
-
   }, [])
 
 

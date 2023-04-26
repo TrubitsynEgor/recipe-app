@@ -2,9 +2,8 @@ import { DetailsInputProps } from '@/types';
 import styles from './Input.module.scss';
 import cn from 'classnames'
 
-interface InputProps extends DetailsInputProps { }
 
-export const Input = ({ name, children, className, ...props }: InputProps) => {
+export const Input = ({ name, children, className, ...props }: DetailsInputProps) => {
 
   return (
     <div>

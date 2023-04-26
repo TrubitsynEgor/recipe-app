@@ -6,9 +6,8 @@ import { Link, useParams } from 'react-router-dom';
 import { IRecipeData } from '@/types/recipe';
 import { Card, Container, ErrorPage, Spinner } from '..';
 
-interface CountryCuisineProps extends DetailsUlProps { }
 
-export const CountryCuisine = ({ className, ...props }: CountryCuisineProps) => {
+export const CountryCuisine = ({ className, ...props }: DetailsUlProps) => {
   const params = useParams()
   const { data = [], isLoading, isError } = useGetByCountryNameQuery(params.country)
   const result = data.results

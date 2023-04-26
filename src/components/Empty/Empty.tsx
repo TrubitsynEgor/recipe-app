@@ -3,9 +3,8 @@ import styles from './Empty.module.scss';
 import cn from 'classnames'
 import EmptyImg from './emty.jpg'
 
-interface EmptyProps extends DetailsDivProps { }
 
-export const Empty = ({ className, ...props }: EmptyProps) => {
+export const Empty = ({ className, ...props }: DetailsDivProps) => {
 
   return (
     <div className={cn(styles.empty, className)} {...props}>

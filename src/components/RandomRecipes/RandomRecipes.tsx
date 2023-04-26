@@ -1,17 +1,17 @@
 import { useGetRandomQuery } from '@/store';
 import styles from './RandomRecipes.module.scss';
 import cn from 'classnames'
-import { DetailsDivProps, IRecipeData } from '@/types';
+import { IRecipeData } from '@/types';
+// @ts-ignore: error message
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import { Card } from '../UI/Card/Card';
 import { Container, ErrorPage, Spinner } from '..';
 import { Link } from 'react-router-dom';
 
-interface RandomRecipesProps extends DetailsDivProps { }
 
-export const RandomRecipes = ({ className, ...props }: RandomRecipesProps) => {
-  const { data = [], isLoading, isError } = useGetRandomQuery()
+export const RandomRecipes = () => {
+  const { data = [], isLoading, isError } = useGetRandomQuery('12')
 
 
   if (isLoading) return <Spinner />
@@ -21,7 +21,7 @@ export const RandomRecipes = ({ className, ...props }: RandomRecipesProps) => {
 
 
   return (
-    <div className={cn(styles.randomRecipes, className)} {...props}>
+    <div >
       <Container>
         <h1 className={styles.mainTitle}>Random recipes for you</h1>
 

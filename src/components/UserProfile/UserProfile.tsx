@@ -1,14 +1,10 @@
-import { DetailsDivProps } from '@/types';
-import styles from './UserProfile.module.scss';
-import cn from 'classnames'
 import { Container, UserForm } from '..';
 import { useAuth } from '@/hooks/useAuth';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-interface UserProfileProps extends DetailsDivProps { }
 
-export const UserProfile = ({ className, ...props }: UserProfileProps) => {
+export const UserProfile = () => {
   const { isAuth, email } = useAuth()
   const userName = email?.split("@")[0]
   const navigate = useNavigate()
@@ -25,12 +21,9 @@ export const UserProfile = ({ className, ...props }: UserProfileProps) => {
 
 
   return (
-    <div className={cn(styles.userProfile, className)} {...props}>
-      <Container>
-        <h1>Welcome!  {userName}</h1>
-        <UserForm />
-
-      </Container>
-    </div>
+    <Container>
+      <h1>Welcome!  {userName}</h1>
+      <UserForm />
+    </Container>
   )
 };

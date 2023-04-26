@@ -4,9 +4,8 @@ import cn from 'classnames'
 import { Link } from 'react-router-dom';
 import { ReactComponent as LogoSVG } from './Logo.svg';
 
-interface LogoProps extends DetailsDivProps { }
 
-export const Logo = ({ className, ...props }: LogoProps) => {
+export const Logo = ({ className, ...props }: DetailsDivProps) => {
 
   return (
     <div className={cn(styles.logo, className)} {...props}>

@@ -27,7 +27,7 @@ export const Form = ({ link, error, submitAuthData, title, onSubmit, className, 
     <form onSubmit={handleAuthSubmit} className={cn(styles.form, className)} {...props}>
       <h2>{title}</h2>
       <Input value={email} onChange={(e) => setEmail(e.target.value)} className={styles.input} type='text' placeholder='Enter your email...'>Email</Input>
-      <Input value={password} onChange={(e) => setPassword(e.target.value)} className={styles.input} type='text' placeholder='Enter your phone...'>Phone</Input>
+      <Input value={password} onChange={(e) => setPassword(e.target.value)} className={styles.input} type='text' placeholder='Enter your password...'>Password</Input>
       <Button>{title}</Button>
       <Link className={styles.link} to={`/${link}`}>or {link}</Link>
       {error && <p className={styles.error}>User is not defined</p>}

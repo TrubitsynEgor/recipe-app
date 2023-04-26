@@ -2,9 +2,9 @@ import { DetailsDivProps } from '@/types';
 import styles from './Container.module.scss';
 import cn from 'classnames'
 
-interface ContainerProps extends DetailsDivProps { }
 
-export const Container = ({ children, className, ...props }: ContainerProps) => {
+
+export const Container = ({ children, className, ...props }: DetailsDivProps) => {
 
   return (
     <div className={cn(styles.container, className)} {...props}>

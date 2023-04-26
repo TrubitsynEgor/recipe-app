@@ -7,14 +7,10 @@ import { useState, useEffect } from 'react'
 import { getProfileStorage } from '@/helpers/localeStorage';
 
 
-
-interface EditTextAreaProps extends DetailsDivProps { }
-
-export const EditTextArea = ({ title, className, ...props }: EditTextAreaProps) => {
+export const EditTextArea = ({ title, className, ...props }: DetailsDivProps) => {
 
   const [value, setValue] = useState(getProfileStorage(title!))
   const [isVisible, setIsVisible] = useState(false)
-  const [alertIsVisible, setAlertIsVisible] = useState(false)
 
   useEffect(() => {
     if (title !== undefined) {

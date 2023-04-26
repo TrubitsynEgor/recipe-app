@@ -1,12 +1,11 @@
-import { DetailsDivProps, IShortRecipeData } from '@/types';
+import { DetailsDivProps } from '@/types';
 import styles from './Vegan.module.scss';
 import cn from 'classnames'
 import { Container } from '..';
 import VeganImg from './vegan.jpg'
 
-interface VeganProps extends DetailsDivProps { }
 
-export const Vegan = ({ className, ...props }: VeganProps) => {
+export const Vegan = ({ className, ...props }: DetailsDivProps) => {
 
 
   return (

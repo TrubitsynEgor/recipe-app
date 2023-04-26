@@ -1,5 +1,5 @@
 import { getRecipeById } from '@/services/recipeAPI';
-import { IRecipeData, IShortRecipeData } from '@/types';
+import { IRecipeData } from '@/types';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 
@@ -37,14 +37,19 @@ export const favoriteSlice = createSlice({
 	reducers: {
 		deleteFavorite(state, action) {
 			state.recipes = state.recipes.filter(el => el.id !== action.payload)
+			state.count -= 1
 		}
 	},
 
 	extraReducers: (builder) => {
 		builder.addCase(addProductToFavorite.fulfilled, (state, action) => {
-			if (state.recipes.length === 0) state.recipes.push(action.payload)
-			if (state.recipes.some(el => el.id !== action.payload.id)) {
-				state.recipes.push(action.payload)
+			if (state.recipes.length === 0) {
+				state.recipes.push({ ...action.payload, isFavorite: true })
+				state.count += 1
+			}
+			if (!state.recipes.some(el => el.id === action.payload.id)) {
+				state.recipes.push({ ...action.payload, isFavorite: true })
+				state.count += 1
 			}
 		});
 

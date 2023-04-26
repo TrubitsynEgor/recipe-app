@@ -1,14 +1,14 @@
 import { DetailsDivProps } from '@/types';
 import styles from './DetailsRecipe.module.scss';
 import cn from 'classnames'
-import { AppDispatch, useGetByIdQuery } from '@/store';
+import { AppDispatch, RootState, useGetByIdQuery } from '@/store';
 import { useParams } from 'react-router-dom';
 import { Button, Container, ErrorPage, Spinner } from '..';
 import { Ingredients } from '@/types/recipe';
 import { useState } from 'react';
 import { BsFillBookmarkHeartFill } from 'react-icons/bs'
-import { useDispatch } from 'react-redux';
-import { addProductToFavorite } from '@/store/favoriteSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addProductToFavorite, deleteFavorite } from '@/store/favoriteSlice';
 
 interface DetailsRecipeProps extends DetailsDivProps { }
 
@@ -17,9 +17,14 @@ export const DetailsRecipe = ({ className, ...props }: DetailsRecipeProps) => {
   const params = useParams()
   const { data = [], isError, isLoading } = useGetByIdQuery(params.id)
   const dispatch = useDispatch<AppDispatch>()
+  const { recipes } = useSelector((state: RootState) => state.favorite)
+  const isFavorite = recipes.some(el => el.id === data.id)
+  const [isActive, setIsActive] = useState(isFavorite)
 
   const handleFavorite = (id: number) => {
-    dispatch(addProductToFavorite(id))
+    setIsActive(prev => !prev)
+    if (!isActive) dispatch(addProductToFavorite(id))
+    if (isActive) dispatch(deleteFavorite(id))
   }
 
   if (isLoading) return <Spinner />
@@ -40,7 +45,9 @@ export const DetailsRecipe = ({ className, ...props }: DetailsRecipeProps) => {
               {data.vegan && <span className={cn(styles.tagsVegan, styles.tagsItem)}>Vegan</span>}
               {data.vegetarian && <span className={cn(styles.tagsVegetarian, styles.tagsItem)}>Vegetarian</span>}
             </div>
-            <Button onClick={() => handleFavorite(data.id)} className={styles.favoriteBtn}>
+            <Button onClick={() => handleFavorite(data.id)} className={cn(styles.favoriteBtn, {
+              [styles.active]: isActive
+            })}>
               <BsFillBookmarkHeartFill />
             </Button>
           </div>
@@ -58,8 +65,8 @@ export const DetailsRecipe = ({ className, ...props }: DetailsRecipeProps) => {
             {tabs ? <div className={styles.instructions} dangerouslySetInnerHTML={{ __html: data.instructions }}></div>
 
               : <ul className={styles.list}>
-                {data.extendedIngredients?.map((el: Ingredients) => (
-                  <li className={styles.item} key={el.id}>
+                {data.extendedIngredients?.map((el: Ingredients, idx: number) => (
+                  <li className={styles.item} key={idx}>
                     <h4 className={styles.ingrTitle}>{el.name}</h4>
                     <p className={styles.ingrDescr}>{el.original}</p>
                   </li>

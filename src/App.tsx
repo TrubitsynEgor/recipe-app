@@ -1,4 +1,4 @@
-import { Home, Cuisines, CuisinesTarget, Search, Recipe, Vegetarian, Vegan, Favorite, Authorization, Register, Profile } from './pages'
+import { Home, Cuisines, CuisinesTarget, Search, Recipe, Vegetarian, Vegan, Favorite, Authorization, Register, Profile, Page404 } from './pages'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider, } from "react-router-dom";
 import './firebase'
 
@@ -16,7 +16,7 @@ const router = createBrowserRouter(
       <Route path="/authorization" element={<Authorization />} />
       <Route path="/register" element={<Register />} />
       <Route path="/profile" element={<Profile />} />
-
+      <Route path='*' element={<Page404 />} />
     </>
   )
 );

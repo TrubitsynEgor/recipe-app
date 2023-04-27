@@ -1,14 +1,14 @@
 import { getRecipeById } from '@/services/recipeAPI';
 import { IRecipeData } from '@/types';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { getLocalStorage } from '@/helpers/localeStorage';
+import { getFavoriteLocalStorage } from '@/helpers/localeStorage';
 
 
 
 
 
 export const addProductToFavorite = createAsyncThunk(
-	'products/addProductToFavorite',
+	'favorite/addProductToFavorite',
 	async (id: number) => {
 		const data = getRecipeById(id)
 
@@ -23,12 +23,12 @@ export interface ProductsState {
 	recipes: IRecipeData[]
 	count: number
 }
-const initialState: ProductsState = getLocalStorage('favorite')
+const initialState: ProductsState = getFavoriteLocalStorage('favorite')
 
 
 
 export const favoriteSlice = createSlice({
-	name: 'products',
+	name: 'favorite',
 	initialState,
 	reducers: {
 		deleteFavorite(state, action) {

@@ -15,6 +15,15 @@ export const getLocalStorage = (key: string) => {
 	}
 }
 
+export const getFavoriteLocalStorage = (key: string) => {
+	const data = localStorage.getItem(key)
+	if (data !== null) return JSON.parse(data)
+	return {
+		recipes: [],
+		count: 0
+	}
+}
+
 export const setLocalStorage = (key: string, data: LocalStorageData) => {
 	localStorage.setItem(key, JSON.stringify(data))
 }

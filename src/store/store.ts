@@ -19,6 +19,7 @@ export const store = configureStore({
 store.subscribe(() => {
 	setLocalStorage('favorite', store.getState().favorite)
 	setLocalStorage('auth', store.getState().auth)
+
 })
 
 

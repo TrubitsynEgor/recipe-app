@@ -8,8 +8,7 @@
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "component": "generate-react component",
-    "deploy": "gh-pages -d dist"
+    "component": "generate-react component"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
@@ -18,7 +17,6 @@
     "country-flag-icons": "^1.5.7",
     "firebase": "^9.20.0",
     "generate-react-cli": "^8.3.0",
-    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
@@ -41,6 +39,5 @@
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.0.2",
     "vite": "^4.3.0"
-  },
-  "homepage": "https://TrubitsynEgor.github.io/recipe-app"
+  }
 }

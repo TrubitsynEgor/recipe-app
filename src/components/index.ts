@@ -4,6 +4,7 @@ export * from './UI/Card/Card'
 export * from './UI/Logo/Logo'
 export * from './UI/EditInput/EditInput'
 export * from './UI/EditTextArea/EditTextArea'
+export * from './UI/BurgerBtn/BurgerBtn'
 
 
 

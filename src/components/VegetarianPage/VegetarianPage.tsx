@@ -14,7 +14,7 @@ export const VegetarianPage = () => {
     caption='We are already working on this problem' />
 
   return (
-    <Container>
+    <Container style={{ paddingTop: '100px' }}>
       <h1 className={styles.pageTitle}>Vegetarian Food</h1>
       <ul className={styles.list}>
         {data.results && data.results.map((el: IShortRecipeData) => (

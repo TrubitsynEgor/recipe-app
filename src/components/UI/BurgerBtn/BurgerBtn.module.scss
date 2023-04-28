@@ -1,0 +1,10 @@
+.burgerBtn {
+	background: none;
+	border: none;
+
+	& svg {
+		width: 25px;
+		height: 25px;
+		fill: var(--light);
+	}
+}

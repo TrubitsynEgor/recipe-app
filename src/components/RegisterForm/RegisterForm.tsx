@@ -6,7 +6,7 @@ import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth'
 import { loginIn } from '@/store/authSlice';
 import { useAuth } from '@/hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
-
+import styles from './RegisterForm.module.scss'
 
 export const RegisterForm = () => {
   const dispatch = useDispatch<AppDispatch>()
@@ -42,7 +42,7 @@ export const RegisterForm = () => {
   }, [isAuth])
 
   return (
-    <Container>
+    <Container className={styles.registerForm}>
       <Form serverError={error} link='authorization' title='Register' submitAuthData={submitAuthData} />
     </Container>
   )

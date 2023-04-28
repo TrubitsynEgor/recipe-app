@@ -6,7 +6,7 @@ import { Container } from '..';
 export const Spinner = () => {
 
   return (
-    <Container className='spinnerContainer'>
+    <Container className='spinnerContainer' style={{ paddingTop: '100px' }}>
       <Blocks
         visible={true}
         height="120"

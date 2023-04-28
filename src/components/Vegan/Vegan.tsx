@@ -9,7 +9,7 @@ export const Vegan = ({ className, ...props }: DetailsDivProps) => {
 
 
   return (
-    <div className={cn(styles.Vegan, className)} {...props}>
+    <div className={cn(styles.vegan, className)} {...props}>
       <Container>
         <h2 className={styles.sectionTitle}>What about the vegan diet?</h2>
         <div className={styles.content}>

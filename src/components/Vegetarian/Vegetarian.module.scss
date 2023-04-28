@@ -1,21 +1,41 @@
 .vegetarian {
 	margin-top: 80px;
 
+	@media (max-width: 768px) {
+		margin-top: 60px;
+
+	}
+
+
 }
 
 .sectionTitle {
 	margin-bottom: 30px;
 
+	@media (max-width: 980px) {
+		text-align: center;
+	}
 }
 
 .content {
 	display: flex;
 	gap: 40px;
 
+	@media (max-width: 980px) {
+		flex-direction: column;
+		align-items: center;
+		gap: 30px;
+	}
+
 	& img {
 		max-width: 500px;
 		object-fit: cover;
 		border-radius: 7px;
+
+		@media (max-width: 640px) {
+			max-width: 100%;
+		}
+
 	}
 }
 

@@ -21,7 +21,7 @@ export const CountryCuisine = ({ className, ...props }: DetailsUlProps) => {
     title="Oops, looks like we're having server problems"
     caption='We are already working on this problem' />
   return (
-    <Container>
+    <Container className={styles.wrapper}>
       <h1 className={styles.pageTitle}>{params.country} recipes</h1>
       <ul className={cn(styles.countryCuisine, className)} {...props}>
         {result?.map((el: IRecipeData) => (

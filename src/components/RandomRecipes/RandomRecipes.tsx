@@ -21,18 +21,27 @@ export const RandomRecipes = () => {
 
 
   return (
-    <div >
+    <div className={styles.randomRecipes}>
       <Container>
         <h1 className={styles.mainTitle}>Random recipes for you</h1>
 
         <Splide options={{
-          perPage: 4,
+          perPage: 3,
           arrows: false,
           pagination: false,
-          drag: 'free',
           gap: '20px',
           autoplay: true,
-          type: 'loop'
+          type: 'loop',
+          breakpoints: {
+            900: {
+              perPage: 2,
+              gap: '10px',
+            },
+            600: {
+              perPage: 1,
+              gap: '10px',
+            }
+          }
         }}>
           {data.recipes.map((el: IRecipeData) =>
             <SplideSlide key={el.id}>

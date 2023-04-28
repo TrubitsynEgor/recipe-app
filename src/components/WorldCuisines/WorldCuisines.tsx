@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 export const WorldCuisines = () => {
 
   return (
-    <Container>
+    <Container style={{ paddingTop: '100px' }}>
       <h1>Recipes from around the world</h1>
       <ul className={styles.list}>
         {cuisines.map(el => (

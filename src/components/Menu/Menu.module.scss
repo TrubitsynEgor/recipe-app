@@ -6,6 +6,11 @@
 	gap: 20px;
 	font-weight: 600;
 
+	@media (max-width: 1050px) {
+		flex-direction: column;
+
+	}
+
 
 
 }

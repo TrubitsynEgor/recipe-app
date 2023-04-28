@@ -1,4 +1,12 @@
 .logo {
+
+	@media (max-width: 1050px) {}
+
+	@media (max-width: 425px) {
+		flex: 0 0 auto;
+
+	}
+
 	& a {
 		display: flex;
 		align-items: center;
@@ -8,6 +16,11 @@
 	& svg {
 		width: 50px;
 		height: 50px;
+
+		@media (max-width: 425px) {
+			width: 30px;
+			height: 30px;
+		}
 	}
 
 	& span {
@@ -15,6 +28,10 @@
 		color: var(--gray-100);
 		font-size: 22px;
 		transition: all .3s ease-in-out;
+
+		@media (max-width: 425px) {
+			font-size: 18px;
+		}
 
 		&:hover {
 			color: var(--orange);

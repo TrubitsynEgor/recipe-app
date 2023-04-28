@@ -27,8 +27,6 @@ export const Form = ({ link, serverError, submitAuthData, title, onSubmit, class
       password: ''
     }
   })
-  console.log(errors);
-
 
   const handleAuthSubmit = (data: FormValuesType) => {
     if (data) submitAuthData(data.email, data.password)

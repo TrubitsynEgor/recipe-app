@@ -2,7 +2,6 @@ import { DetailsDivProps } from '@/types';
 import styles from './Empty.module.scss';
 import cn from 'classnames'
 import EmptyImg from './emty.jpg'
-import { Container } from '..';
 
 
 export const Empty = ({ className, ...props }: DetailsDivProps) => {

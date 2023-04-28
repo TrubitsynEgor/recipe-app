@@ -16,6 +16,12 @@
 	font-weight: 700;
 	max-width: 600px;
 
+	@media (max-width: 560px) {
+		flex-direction: column;
+
+	}
+
+
 	& svg {
 		fill: var(--main-text);
 		transition: all .3s ease-in-out;

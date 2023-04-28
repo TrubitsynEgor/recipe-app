@@ -21,7 +21,7 @@ export const UserProfile = () => {
 
 
   return (
-    <Container style={{ paddingTop: '100px' }}>
+    <Container style={{ paddingTop: '100px', paddingBottom: '60px' }}>
       <h1>Welcome!  {userName}</h1>
       <UserForm />
     </Container>

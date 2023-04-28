@@ -8,6 +8,13 @@
 	grid-template-columns: repeat(3, 1fr);
 	gap: 40px;
 
+	@media (max-width: 1240px) {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		gap: 20px;
+	}
 
 
 	& li {
@@ -40,6 +47,10 @@
 	text-align: center;
 	border-radius: 20px;
 	transition: all .3s ease-in-out;
+
+	@media (max-width: 768px) {
+		font-size: 16px;
+	}
 
 	&:hover {
 		background: linear-gradient(rgba(#378dfc, 0.8), rgba(#0dcaf0, 0.8));

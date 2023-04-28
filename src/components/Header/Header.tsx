@@ -10,6 +10,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { RootState } from '@/store';
 import { useSelector } from 'react-redux';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri'
+import { useEffect } from 'react'
 
 export const Header = ({ className, ...props }: DetailsDivProps) => {
   const { count } = useSelector((data: RootState) => data.favorite)
@@ -22,6 +23,12 @@ export const Header = ({ className, ...props }: DetailsDivProps) => {
     e.preventDefault()
     if (value) navigate(`/search/${value}`)
   }
+
+  useEffect(() => {
+    menuIsOpen
+      ? document.body.classList.add('lock')
+      : document.body.classList.remove('lock')
+  }, [menuIsOpen])
 
 
   return (

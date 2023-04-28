@@ -38,7 +38,7 @@ export const DetailsRecipe = ({ className, ...props }: DetailsDivProps) => {
 
         <div className={styles.content}>
           <div className={styles.imgWrapper}>
-            <img src={data.image} alt="delicious food" />
+            <img className={styles.image} src={data.image} alt="delicious food" />
             <div className={styles.tags}>
               {data.glutenFree && <span className={cn(styles.tagsGluten, styles.tagsItem)}>Gluten free</span>}
               {data.vegan && <span className={cn(styles.tagsVegan, styles.tagsItem)}>Vegan</span>}

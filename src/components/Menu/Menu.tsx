@@ -39,7 +39,7 @@ export const Menu = ({ className, ...props }: DetailsDivProps) => {
           <NavLink onMouseEnter={openSubMenu} onMouseLeave={closeSubMenu} to="/cuisines" className={cn(styles.link, {
             [styles.active]: location.pathname === '/cuisines'
           })}>Cuisines</NavLink>
-          {onHover && <SubMenu onMouseEnter={openSubMenu} onMouseLeave={closeSubMenu} cuisines={cuisines} />}
+          {onHover && <SubMenu onTouchStart={openSubMenu} onMouseEnter={openSubMenu} onMouseLeave={closeSubMenu} cuisines={cuisines} />}
         </li>
         <li className={styles.item}>
           <NavLink to="/vegetarian" className={cn(styles.link, {

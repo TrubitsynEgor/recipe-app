@@ -2,35 +2,98 @@ import { DetailsFormProps } from '@/types';
 import styles from './Form.module.scss';
 import cn from 'classnames'
 import { Button, Input } from '..';
-import { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useForm, Controller } from 'react-hook-form';
+
+
 
 interface FormProps extends DetailsFormProps {
   title: string
   submitAuthData: (email: string, password: string) => void
-  error?: boolean
+  serverError?: boolean
   link: string
 }
+type FormValuesType = {
+  email: string
+  password: string
+}
 
-export const Form = ({ link, error, submitAuthData, title, onSubmit, className, ...props }: FormProps) => {
+export const Form = ({ link, serverError, submitAuthData, title, onSubmit, className, ...props }: FormProps) => {
 
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const { handleSubmit, control } = useForm<FormValuesType>({
+    mode: 'onChange',
+    defaultValues: {
+      email: '',
+      password: ''
+    }
+  })
 
-  const handleAuthSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    submitAuthData(email, password)
+
+  const handleAuthSubmit = (data: FormValuesType) => {
+    if (data) submitAuthData(data.email, data.password)
   }
 
-
   return (
-    <form onSubmit={handleAuthSubmit} className={cn(styles.form, className)} {...props}>
+    <form onSubmit={handleSubmit(handleAuthSubmit)} className={cn(styles.form, className)} {...props}>
       <h2>{title}</h2>
-      <Input value={email} onChange={(e) => setEmail(e.target.value)} className={styles.input} type='text' placeholder='Enter your email...'>Email</Input>
-      <Input value={password} onChange={(e) => setPassword(e.target.value)} className={styles.input} type='text' placeholder='Enter your password...'>Password</Input>
+      <Controller
+        control={control}
+        name='email'
+        rules={{
+          required: 'Email is required',
+          pattern: {
+            value: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+            message: 'Please enter a valid email'
+          }
+        }}
+        render={({ field: { onChange, value }, fieldState: { error } }) => (
+          <>
+            <Input
+              onChange={onChange}
+              value={value}
+              className={styles.input}
+              placeholder='Enter your email...'
+            >
+              Email
+              {error && <span className={styles.error}>{error.message}</span>}
+            </Input>
+
+          </>
+        )}
+      />
+
+      <Controller
+        control={control}
+        name='password'
+        rules={{
+          required: true,
+          minLength: 6
+        }}
+        render={({ field: { onChange, value }, fieldState: { error } }) => (
+          <>
+            <Input
+              onChange={onChange}
+              value={value}
+              className={styles.input}
+              placeholder='Enter your password...'
+            >
+              Password
+              {error && <span className={cn(styles.error, styles.passError)}>Password is invalid, minimum 6 symbols</span>}
+            </Input>
+
+          </>
+        )}
+      />
+
+
+
+
+
       <Button>{title}</Button>
       <Link className={styles.link} to={`/${link}`}>or {link}</Link>
-      {error && <p className={styles.error}>User is not defined</p>}
+      {serverError && <span className={styles.serverError}>User is not defined</span>}
+
+
     </form>
   )
 };

@@ -11,6 +11,7 @@ export const CountryCuisine = ({ className, ...props }: DetailsUlProps) => {
   const params = useParams()
   const { data = [], isLoading, isError } = useGetByCountryNameQuery(params.country)
   const result = data.results
+  console.log(params);
 
 
 

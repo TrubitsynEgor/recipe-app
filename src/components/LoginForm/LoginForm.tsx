@@ -37,7 +37,7 @@ export const LoginForm = () => {
 
   return (
     <Container>
-      <Form link='register' error={error} title='Login in' submitAuthData={submitAuthData} />
+      <Form link='register' serverError={error} title='Login in' submitAuthData={submitAuthData} />
     </Container>
   )
 };

@@ -5,7 +5,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	gap: 20px;
+	gap: 40px;
 
 	& h2 {
 		text-align: center;
@@ -19,9 +19,23 @@
 
 }
 
+
 .error {
+	width: 100%;
+	color: var(--red);
+	position: absolute;
+	bottom: -20px;
+	font-weight: 400;
+}
+
+.passError {
+	bottom: -45px;
+}
+
+
+.serverError {
 	background-color: rgba(red, 0.1);
-	color: red;
+	color: var(--red);
 	padding: 20px;
 	border-radius: 7px;
 }

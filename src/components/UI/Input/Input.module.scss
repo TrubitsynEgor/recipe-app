@@ -1,3 +1,7 @@
+.wrapper {
+	position: relative;
+}
+
 .input {
 	border: none;
 	padding: 12px 20px;
@@ -23,5 +27,5 @@
 }
 
 .label {
-	position: relative;
+	font-weight: 600;
 }

@@ -43,7 +43,7 @@ export const RegisterForm = () => {
 
   return (
     <Container>
-      <Form error={error} link='authorization' title='Register' submitAuthData={submitAuthData} />
+      <Form serverError={error} link='authorization' title='Register' submitAuthData={submitAuthData} />
     </Container>
   )
 };

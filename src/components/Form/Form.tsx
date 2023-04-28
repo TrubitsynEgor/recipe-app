@@ -20,13 +20,14 @@ type FormValuesType = {
 
 export const Form = ({ link, serverError, submitAuthData, title, onSubmit, className, ...props }: FormProps) => {
 
-  const { handleSubmit, control } = useForm<FormValuesType>({
+  const { handleSubmit, control, formState: { errors } } = useForm<FormValuesType>({
     mode: 'onChange',
     defaultValues: {
       email: '',
       password: ''
     }
   })
+  console.log(errors);
 
 
   const handleAuthSubmit = (data: FormValuesType) => {
@@ -89,7 +90,7 @@ export const Form = ({ link, serverError, submitAuthData, title, onSubmit, class
 
 
 
-      <Button>{title}</Button>
+      <Button disabled={Object.keys(errors).length ? true : false}>{title}</Button>
       <Link className={styles.link} to={`/${link}`}>or {link}</Link>
       {serverError && <span className={styles.serverError}>User is not defined</span>}
 

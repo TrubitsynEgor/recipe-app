@@ -18,6 +18,10 @@
 		transform: translate(1px, 1px);
 
 	}
+
+	&:disabled {
+		background-color: var(--gray-400);
+	}
 }
 
 .small {

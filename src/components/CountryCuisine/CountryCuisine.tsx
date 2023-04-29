@@ -5,14 +5,20 @@ import { useGetByCountryNameQuery } from '@/store';
 import { Link, useParams } from 'react-router-dom';
 import { IRecipeData } from '@/types/recipe';
 import { Card, Container, ErrorPage, Spinner } from '..';
-
+import { motion } from 'framer-motion'
 
 export const CountryCuisine = ({ className, ...props }: DetailsUlProps) => {
   const params = useParams()
   const { data = [], isLoading, isError } = useGetByCountryNameQuery(params.country)
   const result = data.results
 
-
+  const variants = {
+    hidden: { opacity: 0 },
+    visible: (i: number) => ({
+      opacity: 1,
+      transition: { delay: i * 0.3 }
+    })
+  };
 
 
 
@@ -24,15 +30,15 @@ export const CountryCuisine = ({ className, ...props }: DetailsUlProps) => {
     <Container className={styles.wrapper}>
       <h1 className={styles.pageTitle}>{params.country} recipes</h1>
       <ul className={cn(styles.countryCuisine, className)} {...props}>
-        {result?.map((el: IRecipeData) => (
-          <li key={el.id}>
+        {result?.map((el: IRecipeData, idx: number) => (
+          <motion.li variants={variants} initial='hidden' animate='visible' custom={idx} key={el.id}>
             <Link to={`/recipe/${el.id}`}>
               <Card>
                 <img src={el.image} alt="delicios image" />
                 <h3 className={styles.title}>{el.title}</h3>
               </Card>
             </Link>
-          </li>
+          </motion.li>
         ))}
       </ul>
     </Container>

@@ -8,7 +8,7 @@ import '@splidejs/react-splide/css';
 import { Card } from '../UI/Card/Card';
 import { Container, ErrorPage, Spinner } from '..';
 import { Link } from 'react-router-dom';
-
+import { motion } from 'framer-motion'
 
 export const RandomRecipes = () => {
   const { data = [], isLoading, isError } = useGetRandomQuery('12')
@@ -20,8 +20,13 @@ export const RandomRecipes = () => {
     caption='We are already working on this problem' />
 
 
+  const variants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0, transition: { duration: 2 } }
+  };
+
   return (
-    <div className={styles.randomRecipes}>
+    <motion.div variants={variants} initial='hidden' animate='visible' className={styles.randomRecipes}>
       <Container>
         <h1 className={styles.mainTitle}>Random recipes for you</h1>
 
@@ -66,6 +71,6 @@ export const RandomRecipes = () => {
 
         </Splide>
       </Container>
-    </div>
+    </motion.div>
   )
 };

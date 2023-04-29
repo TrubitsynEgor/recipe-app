@@ -1,15 +1,17 @@
-import { DetailsDivProps } from '@/types';
 import styles from './Vegan.module.scss';
-import cn from 'classnames'
 import { Container } from '..';
 import VeganImg from './vegan.jpg'
+import { motion } from 'framer-motion'
 
+export const Vegan = () => {
 
-export const Vegan = ({ className, ...props }: DetailsDivProps) => {
-
+  const variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 3 } }
+  };
 
   return (
-    <div className={cn(styles.vegan, className)} {...props}>
+    <motion.div variants={variants} initial='hidden' animate='visible' className={styles.vegan}>
       <Container>
         <h2 className={styles.sectionTitle}>What about the vegan diet?</h2>
         <div className={styles.content}>
@@ -22,6 +24,6 @@ export const Vegan = ({ className, ...props }: DetailsDivProps) => {
         </div>
 
       </Container>
-    </div>
+    </motion.div>
   )
 };

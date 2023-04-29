@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { BsFillBookmarkHeartFill } from 'react-icons/bs'
 import { useDispatch, useSelector } from 'react-redux';
 import { addProductToFavorite, deleteFavorite } from '@/store/favoriteSlice';
-
+import { motion } from 'framer-motion'
 
 export const DetailsRecipe = ({ className, ...props }: DetailsDivProps) => {
   const [tabs, setTabs] = useState(false)
@@ -19,6 +19,15 @@ export const DetailsRecipe = ({ className, ...props }: DetailsDivProps) => {
   const { recipes } = useSelector((state: RootState) => state.favorite)
   const isFavorite = recipes.some(el => el.id === data.id)
   const [isActive, setIsActive] = useState(isFavorite)
+
+  const variants = {
+    hidden: { opacity: 0, x: 50 },
+    visible: (i: number) => ({
+      opacity: 1,
+      x: 0,
+      transition: { delay: i * 0.4 }
+    })
+  };
 
   const handleFavorite = (id: number) => {
     setIsActive(prev => !prev)
@@ -34,16 +43,16 @@ export const DetailsRecipe = ({ className, ...props }: DetailsDivProps) => {
   return (
     <div className={cn(styles.detailsRecipe, className)} {...props}>
       <Container>
-        <h1 className={styles.pageTitle}>{data.title}</h1>
+        <motion.h1 variants={variants} initial='hidden' animate='visible' custom={1} className={styles.pageTitle}>{data.title}</motion.h1>
 
         <div className={styles.content}>
           <div className={styles.imgWrapper}>
-            <img className={styles.image} src={data.image} alt="delicious food" />
-            <div className={styles.tags}>
+            <motion.img variants={variants} initial='hidden' animate='visible' custom={1} className={styles.image} src={data.image} alt="delicious food" />
+            <motion.div variants={variants} initial='hidden' animate='visible' custom={1.5} className={styles.tags}>
               {data.glutenFree && <span className={cn(styles.tagsGluten, styles.tagsItem)}>Gluten free</span>}
               {data.vegan && <span className={cn(styles.tagsVegan, styles.tagsItem)}>Vegan</span>}
               {data.vegetarian && <span className={cn(styles.tagsVegetarian, styles.tagsItem)}>Vegetarian</span>}
-            </div>
+            </motion.div>
             <Button aria-label={`add or remove favorite recipe, this recipe is ${isActive ? 'favorite' : 'not favorite'}`} onClick={() => handleFavorite(data.id)} className={cn(styles.favoriteBtn, {
               [styles.active]: isActive
             })}>
@@ -51,7 +60,7 @@ export const DetailsRecipe = ({ className, ...props }: DetailsDivProps) => {
             </Button>
           </div>
 
-          <div className={styles.descrWrapper}>
+          <motion.div className={styles.descrWrapper} variants={variants} initial='hidden' animate='visible' custom={2}>
 
             <div className={styles.btns}>
               <Button className={cn({
@@ -71,9 +80,10 @@ export const DetailsRecipe = ({ className, ...props }: DetailsDivProps) => {
                   </li>
                 ))}
               </ul>}
-          </div>
+          </motion.div>
         </div>
-        <p className={styles.description} dangerouslySetInnerHTML={{ __html: data.summary }}></p>
+        <motion.p variants={variants} initial='hidden' animate='visible' custom={2.5}
+          className={styles.description} dangerouslySetInnerHTML={{ __html: data.summary }}></motion.p>
 
 
       </Container>

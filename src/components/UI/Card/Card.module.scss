@@ -4,4 +4,8 @@
 	box-shadow: inset 2px 2px 6px rgba(109, 114, 121, 0.2), inset -3px -2px 4px rgba(255, 255, 255, 0.2);
 	border-radius: 7px;
 
+	& img {
+		border-radius: 7px;
+	}
+
 }

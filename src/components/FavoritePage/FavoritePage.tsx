@@ -35,7 +35,7 @@ export const FavoritePage = ({ className, ...props }: DetailsDivProps) => {
                   {el.vegan && <span className={cn(styles.tagsVegan, styles.tagsItem)}>Vegan</span>}
                   {el.vegetarian && <span className={cn(styles.tagsVegetarian, styles.tagsItem)}>Vegetarian</span>}
                 </div>
-                <Button onClick={() => deleteFavoriteRecipe(el.id)} className={styles.btn}>
+                <Button aria-label='remove recipe from favorites' onClick={() => deleteFavoriteRecipe(el.id)} className={styles.btn}>
                   <RiDeleteBin5Fill />
                 </Button>
               </div>

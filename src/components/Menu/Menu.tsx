@@ -4,6 +4,8 @@ import cn from 'classnames'
 import { NavLink, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { SubMenu } from '..';
+import { KeyboardEvent } from 'react'
+
 
 import { US, CN, FR, GR, IN, IT, MX, TH, ES } from 'country-flag-icons/react/3x2'
 export const cuisines = [
@@ -31,14 +33,27 @@ export const Menu = ({ className, ...props }: DetailsDivProps) => {
   const closeSubMenu = () => {
     setOnHover(false)
   }
+  const handleSubMenuByKey = (e: KeyboardEvent<HTMLAnchorElement>) => {
+    if (e.key === 'ArrowDown') setOnHover(true)
+    if (e.key === 'ArrowUp') setOnHover(false)
+  }
+
 
   return (
     <nav className={cn(styles.menu, className)} {...props}>
       <ul className={styles.list}>
+        <li className='visually-hidden' role='alert'>
+          {onHover ? 'submenu opened' : 'submenu closed'}
+        </li>
         <li className={styles.item}>
-          <NavLink onMouseEnter={openSubMenu} onMouseLeave={closeSubMenu} to="/cuisines" className={cn(styles.link, {
-            [styles.active]: location.pathname === '/cuisines'
-          })}>Cuisines</NavLink>
+          <NavLink aria-label='arrow down to open sub menu, arrow up to close'
+            onKeyDown={(e) => handleSubMenuByKey(e)}
+            onMouseEnter={openSubMenu}
+            onMouseLeave={closeSubMenu}
+            to="/cuisines"
+            className={cn(styles.link, {
+              [styles.active]: location.pathname === '/cuisines'
+            })}>Cuisines</NavLink>
           {onHover && <SubMenu onTouchStart={openSubMenu} onMouseEnter={openSubMenu} onMouseLeave={closeSubMenu} cuisines={cuisines} />}
         </li>
         <li className={styles.item}>

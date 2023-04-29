@@ -44,7 +44,7 @@ export const DetailsRecipe = ({ className, ...props }: DetailsDivProps) => {
               {data.vegan && <span className={cn(styles.tagsVegan, styles.tagsItem)}>Vegan</span>}
               {data.vegetarian && <span className={cn(styles.tagsVegetarian, styles.tagsItem)}>Vegetarian</span>}
             </div>
-            <Button onClick={() => handleFavorite(data.id)} className={cn(styles.favoriteBtn, {
+            <Button aria-label={`add or remove favorite recipe, this recipe is ${isActive ? 'favorite' : 'not favorite'}`} onClick={() => handleFavorite(data.id)} className={cn(styles.favoriteBtn, {
               [styles.active]: isActive
             })}>
               <BsFillBookmarkHeartFill />

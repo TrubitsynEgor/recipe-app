@@ -42,9 +42,9 @@ export const Header = ({ className, ...props }: DetailsDivProps) => {
           <AiOutlineFileSearch className={styles.img} />
         </form>
 
-        <Link to='/favorite' className={styles.favorites}>
+        <Link to='/favorite' className={styles.favorites} aria-label='to favorites page' >
           <AiOutlineHeart />
-          {count > 0 && <span>{count}</span>}
+          {count > 0 && <span tabIndex={0}>{count}</span>}
         </Link>
 
         <AuthPanel className={styles.authPanel} />

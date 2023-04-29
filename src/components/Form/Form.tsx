@@ -54,7 +54,7 @@ export const Form = ({ link, serverError, submitAuthData, title, onSubmit, class
               placeholder='Enter your email...'
             >
               Email
-              {error && <span className={styles.error}>{error.message}</span>}
+              {error && <span role='alert' className={styles.error}>{error.message}</span>}
             </Input>
 
           </>
@@ -77,7 +77,7 @@ export const Form = ({ link, serverError, submitAuthData, title, onSubmit, class
               placeholder='Enter your password...'
             >
               Password
-              {error && <span className={cn(styles.error, styles.passError)}>Password is invalid, minimum 6 symbols</span>}
+              {error && <span role='alert' className={cn(styles.error, styles.passError)}>Password is invalid, minimum 6 symbols</span>}
             </Input>
 
           </>
@@ -88,9 +88,11 @@ export const Form = ({ link, serverError, submitAuthData, title, onSubmit, class
 
 
 
-      <Button disabled={Object.keys(errors).length ? true : false}>{title}</Button>
+      <Button disabled={Object.keys(errors).length ? true : false}
+        aria-label={Object.keys(errors).length ? `button ${title} disabled` : `button ${title} active`}
+        role='alert'>{title}</Button>
       <Link className={styles.link} to={`/${link}`}>or {link}</Link>
-      {serverError && <span className={styles.serverError}>User is not defined</span>}
+      {serverError && <span role='alert' className={styles.serverError}>User is not defined</span>}
 
 
     </form>

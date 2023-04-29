@@ -9,7 +9,7 @@ export const Logo = ({ className, ...props }: DetailsDivProps) => {
 
   return (
     <div className={cn(styles.logo, className)} {...props}>
-      <Link to="/">
+      <Link to="/" aria-label='Logo link to home page'>
         <LogoSVG />
         <span>Find recipe app</span>
       </Link>

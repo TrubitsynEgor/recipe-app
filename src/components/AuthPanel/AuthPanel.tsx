@@ -24,10 +24,10 @@ export const AuthPanel = ({ className, ...props }: DetailsDivProps) => {
   return (
     <div className={cn(styles.authPanel, className)} {...props}>
       <Link to='/authorization'>
-        {!isAuth ? <span>Log in</span> : <span>{userName}</span>}
+        {!isAuth ? <span>Log in</span> : <span aria-label='go to profile page'>{userName}</span>}
         <BiUser />
       </Link >
-      {isAuth && <Button onClick={logOut} aria-label='log out button' className={styles.exit}><ImExit /></Button>}
+      {isAuth && <Button onClick={logOut} aria-label='log out' className={styles.exit}><ImExit /></Button>}
     </div>
   )
 };
